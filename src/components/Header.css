@@ -1,0 +1,51 @@
+nav{
+    display: flex;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    height: 65px;
+    
+    
+}
+section{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    align-items: center;
+    margin: 30px 4em;
+}
+.memegen{
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    font-size: 30px;
+    line-height: 24px;
+    letter-spacing: -0.1em;
+   
+
+}
+section>img{
+    width: 50;
+    height: 44px;
+}
+.right-writing{
+    margin: 30px 4em;
+    font-weight: 500;
+font-size: 20px;
+line-height: 15px;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+@media screen and (max-width: 992px) {
+    nav{
+        width: 100%;
+    }
+}
