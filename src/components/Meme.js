@@ -4,24 +4,35 @@ import Data from './Data'
 
 
 function Meme() {
-  let url
-  const memes=Data.data.memes
-  function randomImage(e){
-    e.preventDefault();
-    
-  const random=memes[Math.floor(Math.random()*memes.length)]
-  url=random.url
+  const [meme,setMeme]=React.useState({
+    topText: "",
+    bottomText:"",
+    randomImage:""
+  })
  
+
+  let url
+  const memesImage=Data.data.memes
+  function getrandomImage(e){
+    e.preventDefault(); 
+  const random=memesImage[Math.floor(Math.random()*memesImage.length)]
+  url=random.url
+  setMeme(prevState=> ({
+    ...prevState,
+    randomImage:url
+  }))
+  
 }
-  return (
+  return (<div className='wrapper'>
     <form className='meme'>
-      <p >{url}</p>
         <div className='form'>
        <input type="text" placeholder='Shut Up'/>
        <input type="text" placeholder='take my money'/>
        </div>
-       <button  className="button" onClick={randomImage}> Get a new meme image &#128444;</button>
+       <button  className="button" onClick={getrandomImage}> Get a new meme image &#128444;</button>
     </form>
+    <img src={meme.randomImage} alt="meme" className='memeImage'/>
+    </div>
   );
 }
 
