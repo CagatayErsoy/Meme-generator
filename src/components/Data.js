@@ -1,5 +1,5 @@
 
-export default  {
+const Data={
     "success": true,
     "data": {
         "memes": [
@@ -806,3 +806,4 @@ export default  {
         ]
     }
 }
+export default Data;
