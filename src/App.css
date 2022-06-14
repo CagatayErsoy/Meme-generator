@@ -2,9 +2,11 @@
 .App{
   display: flex;
   flex-direction: column;
-  width: 70%;
+  justify-content:center;
+  align-items:center;
+  width: 70vw;
   margin: auto;
   background: #E5E5E5;
   font-family: 'Inter', sans-serif;
-  
+  overflow: none;
 }
