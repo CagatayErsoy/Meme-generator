@@ -1,17 +1,22 @@
 import './Meme.css';
 import React from 'react';
-import Data from './Data'  
 
 
 export default function Meme() {
-
+    React.useEffect(()=>{
+        console.log("again")
+        fetch("https://api.imgflip.com/get_memes").then(
+            data=>data.json()
+        ).then( res=> setAllMemes(res.data.memes))
+       
+    },[])
   
   const [meme, setMeme] = React.useState({
-      topText: "",
-      bottomText: "",
+      topText: "write something",
+      bottomText: "or get out of here",
       randomImage: "http://i.imgflip.com/1bij.jpg" 
   })
-  const [allMemeImages, setAllMemeImages] = React.useState(Data)
+  const [allMemes, setAllMemes] = React.useState([])
   function handleChance(event){
       const {name,value}=event.target
       setMeme(prevMeme=>({
@@ -22,7 +27,7 @@ export default function Meme() {
   }
   
   function getMemeImage() {
-      const memesArray = allMemeImages.data.memes
+      const memesArray = allMemes
       
       const randomNumber = Math.floor(Math.random() * memesArray.length)
       const url = memesArray[randomNumber].url
@@ -43,6 +48,7 @@ export default function Meme() {
                     className="form--input"
                     name="topText"
                     onChange={handleChance}
+                    
                 />
                 <input 
                     type="text"
